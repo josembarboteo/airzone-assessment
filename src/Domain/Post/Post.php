@@ -14,6 +14,28 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Post extends Model {
     use HasFactory;
 
+    private string $title;
+    private string $slug;
+    private string $picture;
+    private string $shortContent;
+    private string $content;
+    private bool $pending;
+    private bool $public;
+    private bool $active;
+
+    public function __construct($title, $slug, $picture, $shortContent, $content, $pending = true, $public = false, $active= false)
+    {
+        $this->title = $title;
+        $this->slug = $slug;
+        $this->picture = $picture;
+        $this->shortContent = $shortContent;
+        $this->content = $content;
+        $this->pending = $pending;
+        $this->public = $public;
+        $this->active = $active;
+
+    }
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);

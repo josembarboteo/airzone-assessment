@@ -11,6 +11,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Comment extends Model {
     use HasFactory;
 
+    private $content;
+
+    public function __construct($content)
+    {
+        $this->content = $content;
+    }
+
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

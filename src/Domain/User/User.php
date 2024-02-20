@@ -12,6 +12,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Model {
     use HasFactory;
 
+    private string $username;
+    private string $fullName;
+
+    public function __construct($username, $fullName)
+    {
+        $this->username = $username;
+        $this->fullName = $fullName;
+    }
+
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class, 'Comment-User');
