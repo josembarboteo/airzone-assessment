@@ -26,8 +26,10 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    ports:
+      - 3306:3306
     volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./Docker/mysql:/docker-entrypoint-initdb.d
     networks:
       - AirzoneDev
   nginx:
@@ -38,7 +40,7 @@ services:
       - 8000:80
     volumes:
       - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
+      - ./Docker/nginx:/etc/nginx/conf.d/
     networks:
       - AirzoneDev
 networks:
