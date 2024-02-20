@@ -29,6 +29,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Airzone\\": "src/",
             "Tests\\": "tests/"
         }
     },
