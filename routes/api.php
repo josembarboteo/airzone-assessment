@@ -1,6 +1,7 @@
 <?php
 
 use Airzone\Infraestructure\Controllers\CategoriesController;
+use Airzone\Infraestructure\Controllers\PostsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,8 @@ Route::prefix('')->group(function() {
         Route::post('', [CategoriesController::class, 'create']);
         Route::put('/{categoryId}', [CategoriesController::class, 'update']);
         Route::delete('/{categoryId}', [CategoriesController::class, 'delete']);
+    });
+    Route::prefix('/posts')->group(function() {
+        Route::get('/{postId}/comments', [PostsController::class, 'getWithAllData']);
     });
 });
