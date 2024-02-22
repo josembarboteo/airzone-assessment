@@ -12,14 +12,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Model {
     use HasFactory;
 
-    private string $username;
-    private string $fullName;
+    public $timestamps = false;
 
-    public function __construct($username, $fullName)
-    {
-        $this->username = $username;
-        $this->fullName = $fullName;
-    }
+    protected $username;
+    protected $fullName;
 
     public function comments(): HasMany
     {

@@ -10,13 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model {
     use HasFactory;
+    
+    public $timestamps = false;
 
-    private $content;
-
-    public function __construct($content)
-    {
-        $this->content = $content;
-    }
+    protected $content;
 
     public function post(): BelongsTo
     {
