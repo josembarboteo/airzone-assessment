@@ -23,14 +23,16 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Airzone\\": "src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Airzone\\": "src/",
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "AirzoneUnitTests\\": "tests/Unit",
+            "AirzoneIntegrationTests\\": "tests/Integration"
         }
     },
     "scripts": {

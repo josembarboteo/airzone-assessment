@@ -5,6 +5,7 @@ namespace Airzone\Domain\User;
 use Airzone\Domain\Category\Category;
 use Airzone\Domain\Comment\Comment;
 use Airzone\Domain\Post\Post;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -30,5 +31,10 @@ class User extends Model {
     public function categories(): HasMany
     {
         return $this->hasMany(Category::class);
+    }
+
+    protected static function newFactory()
+    {
+        return new UserFactory();
     }
 }
